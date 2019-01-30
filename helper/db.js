@@ -1,6 +1,8 @@
 var https = require('https'),
     http = require('http'),
+    colTypes = require('./columnTypes'),
     xml2js = require('xml2js');
+
 
 
 exports.getElements = function(req, res){
@@ -29,6 +31,8 @@ function getElementsHTTPS(xmlURL, res){
 function webGET(xmlURL, result, res){
     var data = '';
     var parser = new xml2js.Parser();
+    var getColValue = colTypes.findColSQLValue;
+    console.log(getColValue('gml:LengthType'));
     parser.on('error', function(err) { 
         console.log(err);
         res.render("error"); 
@@ -44,12 +48,20 @@ function webGET(xmlURL, result, res){
                 var resulArr = result.schema.element.map(function(val){
                     var name = val.$.name;
                     var description = val.annotation[0].documentation[0];
+                    var columns = findColumns(result.schema.complexType, name);
+                    var sqlSentence ='';
+                    columns.forEach(function(val){
+                        sqlSentence += '"'+val.name+'"'+ ' ' +getColValue(val.type)+'\n';
+                    });
                     return {
                         name: name, 
                         description : description,
                         substitutionGroup: val.$.substitutionGroup,
                         type: val.$.type,
-                        columns: findColumns(result.schema.complexType, name)
+                        columns: columns,
+                        dbscript: `CREATE TABLE ${name}(
+                            ${sqlSentence}
+                        )`
                     }                            
                     })
 

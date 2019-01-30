@@ -38,6 +38,23 @@ footer{
     color: blue
 }
 
+
+.flexcontainer {
+    display: flex;
+    align-content: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 200px;
+}
+
+.columnlist{
+    font-size:11px;
+}
+
+.card {
+    margin: 20px;
+}
+
 @media (max-width: 600px) { 
     footer img{
         width: 150px;
