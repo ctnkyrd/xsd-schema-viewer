@@ -1,0 +1,56 @@
+.d-flex {
+    color: #fcfcfc;
+    background: #343a40;
+    padding: 0.6%;
+    font-family: 'Dosis', sans-serif;
+    display: flex;
+}
+.crew{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    opacity: 0.1;
+    font-size: 0.8em;
+}
+.crew img{
+    width: 15px;
+    margin-left: 5px;
+}
+
+footer img{
+    width: 200px;
+}
+
+footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+}
+
+#welcome{
+    margin-top:50px
+}
+
+.samplelink{
+    font-size: 12px;
+    margin-left: 20px;
+    font-style: italic;
+    color: blue
+}
+
+@media (max-width: 600px) { 
+    footer img{
+        width: 150px;
+    }
+    .crew{
+        display: none;
+    }
+    .d-flex{
+        flex-direction: column-reverse;
+        justify-content: center;
+        align-content: center;
+        text-align: center;
+        padding: 1%
+    }
+
+ }

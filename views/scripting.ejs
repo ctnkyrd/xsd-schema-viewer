@@ -1,0 +1,53 @@
+<% include partials/header %>
+
+<style>
+    .flexcontainer {
+        display: flex;
+        align-content: center;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .columnlist{
+        font-size:11px;
+    }
+
+    .card {
+        margin: 20px;
+    }
+</style>
+
+<div class="container">
+    <h1>DB Scripts will be here</h1>
+    <div class="flexcontainer">
+        <% result.forEach(function(val){ %>
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <%= val.name %>
+                </h5>
+                <h6 class="card-subtitle mb-2 text-muted">Üst Şema - <em>
+                        <%= val.substitutionGroup %></em></h6>
+                <a class="btn btn-outline-info btn-sm" data-toggle="collapse" href="#id_desc_<%= val.name%>" role="button"
+                    aria-expanded="false" aria-controls="id_desc_<%= val.name%>">Açıklama</a>
+                <a class="btn btn-outline-success btn-sm" data-toggle="collapse" href="#id_cols_<%= val.name%>" role="button"
+                    aria-expanded="false" aria-controls="id_cols_<%= val.name%>">Kolonlar</a>
+                <a class="btn btn-outline-dark btn-sm" target="_blank" href="<%= xsdURL %>">XSD</a>
+                <p class="card-text">
+                    <div class="collapse multi-collapse" id="id_desc_<%= val.name%>">
+                        <%= val.description %>
+                    </div>
+                    <div class="collapse multi-collapse" id="id_cols_<%= val.name%>">
+                    <% val.columns.forEach(function(col){ %> 
+                        <li class="columnlist"><strong><%= col.name %></strong>-<em><%= col.type %></em></li>
+                    <% }) %>
+                    </div>
+            </div>
+        </div>
+
+        <% }) %>
+    </div>
+</div>
+
+
+<% include partials/footer %>

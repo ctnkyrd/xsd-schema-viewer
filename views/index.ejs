@@ -1,0 +1,25 @@
+<% include partials/header %>
+
+
+<div class="container" id="welcome">
+    <div class="jumbotron">
+        <h1 class="display-4">TUCBS/INSPIRE XSD Şema Görüntüleyici</h1>
+        <p class="lead">TUCBS ve INSPIRE tarafından yayınlanan xsd şema dokümanlarındaki objelerin web üzerinde görüntülenmesi ve obje ögelerinin listelenmesi amacıyla yapılmıştır.</p>
+        <hr class="my-4">
+        <p>Görüntülemek istediğiniz .xsd uzantılı web adresini aşağıdaki kutucuğa girerek <strong>Göster</strong>'e basınız.
+        </p>
+        <p class="lead">
+            <form action="/db" method="POST">
+                <div class="form-group">
+                    <label for="xsdURL">XSD Adresini Giriniz:</label>
+                    <input type="url" required class="form-control" id="xsdURL" name="xsd[url]" placeholder="https://tucbs-public-api.csb.gov.tr/tucbs_uygulama_semalari/bi_bina/1.0/bina.xsd">
+                </div>
+                <button type="submit" class="btn btn-outline-primary">Göster</button>
+            </form>
+        </p>
+    </div>
+</div>
+
+    <script src="app.js"></script>
+
+<% include partials/footer %>
