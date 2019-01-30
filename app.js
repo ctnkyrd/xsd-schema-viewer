@@ -1,7 +1,7 @@
 const express = require('express'),
     app = express(),
     port = process.env.PORT || 3000,
-    ip = process.env.IP || 'localhost'
+    ip = process.env.IP || 'localhost',
     bodyParser = require("body-parser");
 
 
