@@ -1,6 +1,7 @@
 const express = require('express'),
     app = express(),
     port = process.env.PORT || 3000,
+    ip = process.env.IP || 'localhost'
     bodyParser = require("body-parser");
 
 
@@ -21,6 +22,6 @@ app.get("/", function(req, res){
 
 
 
-app.listen(port, function(){
+app.listen(port, ip, function(){
     console.log(`APP STARTED ${port}`);
 });
