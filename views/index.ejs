@@ -9,6 +9,22 @@
         <p>Görüntülemek istediğiniz .xsd uzantılı web adresini aşağıdaki kutucuğa girerek <strong>Göster</strong>'e basınız.
         </p>
         <p class="lead">
+        <div class="input-group mb-3">
+  <div class="input-group-prepend">
+    <label class="input-group-text" for="inputGroupSelect01">TUCBS XSD</label>
+  </div>
+  <select class="custom-select" id="xsdSelect">
+    <option selected disabled>Seçiniz...</option>
+    <option value="https://tucbs-public-api.csb.gov.tr/tucbs_uygulama_semalari/ad_adrs/1.0/adres.xsd">ad_adres</option>
+    <option value="https://tucbs-public-api.csb.gov.tr/tucbs_uygulama_semalari/ao_rast/1.0/araziOrtusuRaster.xsd">ao_rast</option>
+    <option value="https://tucbs-public-api.csb.gov.tr/tucbs_uygulama_semalari/ao_term/1.0/araziOrtusu.xsd">ao_term</option>
+    <option value="https://tucbs-public-api.csb.gov.tr/tucbs_uygulama_semalari/ao_vekt/1.0/araziOrtusuVektor.xsd">ao_vekt</option>
+    <option value="https://tucbs-public-api.csb.gov.tr/tucbs_uygulama_semalari/bi_bina/1.0/bina.xsd">bi_bina</option>
+  </select>
+</div>
+      </select>
+        </p>
+        <p class="lead">
             <form action="/db" method="POST">
                 <div class="form-group">
                     <label for="xsdURL">XSD Adresini Giriniz:</label>
