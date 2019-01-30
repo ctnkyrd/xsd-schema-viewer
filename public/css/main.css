@@ -75,4 +75,11 @@ footer{
         padding: 1%
     }
 
+    .jumbotron h1{
+        font-size: 2.5em;
+    }
+
+    .btn-outline-primary {
+        width: 100%;
+    }
  }
