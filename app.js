@@ -22,8 +22,6 @@ app.get("/", function(req, res){
     res.render("index");
 });
 
-
-
 app.listen(port, ip, function(){
     console.log(`APP STARTED`);
 });
