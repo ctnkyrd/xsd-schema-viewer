@@ -47,7 +47,9 @@ function webGET(xmlURL, result, res){
               else {
                 var resulArr = result.schema.element.map(function(val){
                     var name = val.$.name;
-                    var description = val.annotation[0].documentation[0];
+                    console.log(name);
+                    if(val.annotation !== undefined) var description = val.annotation[0].documentation[0];
+                    else description = 'Bilgi Yok.'
                     var columns = findColumns(result.schema.complexType, name);
                     var sqlSentence ='';
                     columns.forEach(function(val){
