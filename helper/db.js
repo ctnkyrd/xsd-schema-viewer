@@ -48,6 +48,9 @@ function webGET(xmlURL, result, res){
                 var resulArr = result.schema.element.map(function(val){
                     var name = val.$.name;
                     console.log(name);
+                    if(name === 'NicelikDegeri'){
+                        console.log("hey")
+                    }
                     if(val.annotation !== undefined) var description = val.annotation[0].documentation[0];
                     else description = 'Bilgi Yok.'
                     var columns = findColumns(result.schema.complexType, name);
@@ -95,7 +98,8 @@ function findColumns(arr,name){
 
     var colF2 = arr.filter(val=>((val.$.name === name+'Type' || val.$.name === name+'PropertyType') && val.complexContent === undefined))
                 .map(function(val){
-                    return val.sequence[0].element;
+                    if(val.sequence !== undefined) return val.sequence[0].element;
+                    else return [{$:{$: {ref: 'err'}}}]; //jeoloji nicelik değerindeki hata!
                 })[0];
 
                 if (colF2 !== undefined){
