@@ -60,6 +60,27 @@ footer{
     margin: 20px;
 }
 
+body {
+    background-color: #F5F0EB;
+}
+.bg-dark {
+    background-color: #1b1a2b;
+}
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6 {
+    color: #ffc107;
+    font-weight: 500;
+}
+.jumbotron {
+    box-shadow: 0px 5px 25px 3px rgba(0,0,0,0.75);
+    background-color: #2E3140;
+}
+.card {
+    margin: 20px;
+    box-shadow: 0px 5px 25px 3px rgba(0,0,0,0.75);
+    border-radius: 20px 50px 20px 50px;
+}
+
+
 @media (max-width: 600px) { 
     footer img{
         width: 150px;
